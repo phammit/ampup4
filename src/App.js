@@ -34,6 +34,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Welcome to Monster Bids</h1>
       <h1>Catalog of Items</h1>
       <input
         onChange={e => setFormData({ ...formData, 'title': e.target.value})}
