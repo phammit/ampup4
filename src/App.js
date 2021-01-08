@@ -5,7 +5,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Welcome Again to AmpUp4!!</p>
+        <p>Welcome to AmpUp4!!</p>
+        <p>Testing Deployment</p>
       </header>
     </div>
   );
