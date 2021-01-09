@@ -4,17 +4,17 @@ import { API } from 'aws-amplify';
 import { listItems } from './graphql/queries';
 import { createItem as createItemMutation, deleteItem as deleteItemMutation} from './graphql/mutations';
 
-const initialFormState = { title: '', description: ''};
+const initialFormState = { title: '', description: '', price: ''};
 
 function App() {
   const [items, setItems] = useState([]);
   const [formData, setFormData] = useState(initialFormState);
 
   useEffect(() => {
-    fetchNotes();
+    fetchItems();
   }, []);
 
-  async function fetchNotes() {
+  async function fetchItems() {
     const apiData = await API.graphql({ query: listItems });
     setItems(apiData.data.listItems.items);
   }
@@ -46,6 +46,11 @@ function App() {
         placeholder="Item description"
         value={formData.description}
       />
+      <input
+        onChange={e => setFormData({ ...formData, 'price': e.target.value})}
+        placeholder="Item price"
+        value={formData.price}
+      />
       <button onClick={createItem}>Create Item</button>
       <div style={{marginBottom: 30}}>
         {
@@ -53,6 +58,7 @@ function App() {
             <div key={item.id || item.title}>
               <h2>{item.title}</h2>
               <p>{item.description}</p>
+              <p>{item.price}</p>
               <button onClick={() => deleteItem(item)}>Delete Item</button>
             </div>
           ))

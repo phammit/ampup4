@@ -10,6 +10,7 @@ export const createItem = /* GraphQL */ `
       id
       title
       description
+      price
       createdAt
       updatedAt
     }
@@ -24,6 +25,7 @@ export const updateItem = /* GraphQL */ `
       id
       title
       description
+      price
       createdAt
       updatedAt
     }
@@ -38,6 +40,7 @@ export const deleteItem = /* GraphQL */ `
       id
       title
       description
+      price
       createdAt
       updatedAt
     }
